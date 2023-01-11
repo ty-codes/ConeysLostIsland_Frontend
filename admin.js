@@ -12,7 +12,7 @@ const ErrorText =
 
 const getItems = async () => {
   try {
-    const resp = await fetch('http://127.0.0.1:8000/home')
+    const resp = await fetch('https://coneyslostisland.onrender.com/home')
     const data = await resp.json()
     return data;
   } catch(err) {
@@ -67,7 +67,7 @@ const addTocarList = async function () {
   // cars.push(nItem)
 
   try {
-    await fetch('http://127.0.0.1:8000/admin', {
+    await fetch('https://coneyslostisland.onrender.com/admin', {
       method: "POST",
       body: JSON.stringify(nItem),
       headers: {
@@ -122,7 +122,7 @@ function confirmRemove(removedItem, idx) {
       // items.splice(idx, 1);
       // console.log(removedItem);
       
-      const res = await fetch('http://127.0.0.1:8000/remove', {
+      const res = await fetch('https://coneyslostisland.onrender.com/remove', {
         method: "DELETE",
         body: JSON.stringify(removedItem[0]),
         headers: {
