@@ -10,7 +10,7 @@ const ErrorText =
 
 const getItems = async () => {
   try {
-    const resp = await fetch('http://127.0.0.1:8000/home')
+    const resp = await fetch('https://coneyslostisland.onrender.com/home')
     const data = await resp.json()
     return data;
   } catch (err) {
@@ -51,7 +51,7 @@ const claimItem = async () => {
   nItem.ticket = ticket.value;
 
   try {
-  await fetch('http://127.0.0.1:8000/claim', {
+  await fetch('https://coneyslostisland.onrender.com/claim', {
     method: "POST",
     body: JSON.stringify(nItem),
     headers: {
