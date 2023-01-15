@@ -2,17 +2,18 @@ async function validateDetails() {
   const username= document.getElementById("username").value;
   const password = document.getElementById("password").value;
   try {
-    const res = await fetch('http://127.0.0.1:8000/login', {
+    await fetch('http://127.0.0.1:8000/login', {
       method: "POST",
       body: JSON.stringify({username, password}),
       headers: {
         'Content-Type': 'application/json',
       }
-    })
-    if(res.status === 200) {
+    }).then(res => {
+      if(res.status === 200) {
       console.log("authenticated")
       localStorage.setItem("token", "123")
     }
+    })    
   } catch(err) {
     console.log('errrr', err)
   }

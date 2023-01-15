@@ -1,3 +1,10 @@
+// var token = localStorage.getItem("token");
+
+// if(!token) {
+//     document.getElementById("admin").style.display = "none";
+// }
+
+
 var items = [];
 var storage;
 
@@ -9,10 +16,10 @@ const ErrorText =
       </div>
     `
  
-
+// https://coneyslostisland.onrender.com/home
 const getItems = async () => {
   try {
-    const resp = await fetch('https://coneyslostisland.onrender.com/home')
+    const resp = await fetch('http://127.0.0.1:8000/home')
     const data = await resp.json()
     return data;
   } catch(err) {
@@ -52,7 +59,7 @@ function photoUpload() {
   pht.src = document.getElementById('image').value
 }
 
-const addTocarList = async function () {
+const addItem = async function () {
   var img = document.getElementById('image')
   var name = document.getElementById('name')
   var lc = document.getElementById('location')
@@ -67,7 +74,7 @@ const addTocarList = async function () {
   // cars.push(nItem)
 
   try {
-    await fetch('https://coneyslostisland.onrender.com/admin', {
+    await fetch('http://127.0.0.1:8000/admin', {
       method: "POST",
       body: JSON.stringify(nItem),
       headers: {
@@ -122,7 +129,7 @@ function confirmRemove(removedItem, idx) {
       // items.splice(idx, 1);
       // console.log(removedItem);
       
-      const res = await fetch('https://coneyslostisland.onrender.com/remove', {
+      const res = await fetch('http://127.0.0.1:8000/remove', {
         method: "DELETE",
         body: JSON.stringify(removedItem[0]),
         headers: {
@@ -164,7 +171,7 @@ function confirmRemove(removedItem, idx) {
 
 function runAdminData(myList) {
   var result = myList?.map((dt, key) => {
-    return (`<div class="col-md-4 " key=${dt._id}>
+    return (`<div class="col-md-6 " key=${dt._id}>
           <div class="card item">
             <img src="${dt.image}" class="card-img-top" alt="...">
             <div class="card-body">

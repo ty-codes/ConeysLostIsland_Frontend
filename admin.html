@@ -44,6 +44,8 @@
         <!-- <form class="d-flex" onsubmit="event.preventDefault()"> -->
         <!-- <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"> -->
         <button class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#addItem">Add</button>
+        <button class="btn btn-outline-primary logout" >Logout</button>
+
         <!-- </form> -->
       </div>
     </div>
@@ -66,47 +68,42 @@
   </div>
   <!-- modal -->
   <!-- Modal -->
-  <div class="modal fade" id="addItem" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal fade" id="addItem" tabindex="-1" aria-labelledby="addItemModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="addItemModalLabel">Claim your property</h5>
+          <h5 class="modal-title" id="addCarModalLabel">Add item</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <form class="row">
-            <div class="col-sm-2"></div>
-
-            <div class="col-sm-8">
-              <div class="mb-3">
-                <label for="name" class="form-label">Name</label>
-                <input type="text" class="form-control" id="name" placeholder="Teddy bear" required>
-              </div>
-              <div class="mb-3">
-                <label for="description" class="form-label">Description</label>
-                <textarea type="text" class="form-control" id="description" placeholder="" required></textarea>
-              </div>
-              <div class="mb-3">
-                <label for="location" class="form-label">Location lost</label>
-                <input type="text" class="form-control" id="location" placeholder="" required>
-              </div>
-              <div class="mb-3">
-                <label for="ticket" class="form-label">Ticket ID</label>
-                <input type="text" class="form-control" id="ticket" placeholder="" required>
-              </div>
-              <div class="mb-3">
-                <label for="date_lost" class="form-label">Date lost</label>
-                <input type="date" class="form-control" id="date_lost" placeholder="" required>
-              </div>
+         <form class="row">
+           <div class="col-sm-6">
+            <div class="mb-3">
+              <label for="name" class="form-label">Name</label>
+              <input type="text" class="form-control" id="name" placeholder="">
             </div>
-            <div class="col-sm-2"></div>
-            
-          </form>
-          <p id="error"></p>
+            <div class="mb-3">
+              <label for="location" class="form-label">Location</label>
+              <input type="text" class="form-control" id="location" placeholder="Park">
+            </div>
+            <div class="mb-3">
+              <label for="description" class="form-label">Description</label>
+              <input type="text" class="form-control" id="description" placeholder="">
+            </div>
+            <div class="mb-3">
+              <label for="image" class="form-label">Image link</label>
+              <input type="url" class="form-control" id="image" oninput="photoUpload()" placeholder="">
+            </div>
+           </div>
+           <div class="col-sm-2"></div>
+          <div class="col-sm-4">
+            <img src="images/car.png" id="photo" class=" img-fluid img-thumbnail rounded" >
+          </div>
+         </form>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" onclick="addItem()" class="btn btn-primary">Add Item</button>
+          <button type="button" onclick="addItem()" class="btn btn-primary">Add to List</button>
         </div>
       </div>
     </div>
@@ -119,7 +116,9 @@
       padding: 0;
       font-family: "Montserrat";
     }
-
+    .col-md-6 {
+      width: 46% !important;
+    }
     .header {
       background-image: url(images/c.jpg);
       background-size: cover;
