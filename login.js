@@ -10,7 +10,7 @@ async function validateDetails() {
   document.getElementById("error-message").innerText = "";
 
   try {
-    await fetch('http://127.0.0.1:8000/login', {
+    await fetch('https://coneyslostisland.onrender.com/login', {
       method: "POST",
       body: JSON.stringify({username, password}),
       headers: {
@@ -51,21 +51,7 @@ class Login {
     this.form.addEventListener("submit", (e) => {
       e.preventDefault();
       validateDetails();
-      // var error = 0;
-      // // loop through the fields and check them against a function for validation
-      // self.fields.forEach((field) => {
-      //   const input = document.querySelector(`#${field}`);
-      //   if (self.validateFields(input) == false) {
-      //     // if a field does not validate, auto-increment our error integer
-      //     error++;
-      //   }
-      // });
-      // if everything validates, error will be 0 and can continue
-      // if (error == 0) {
-      //   //do login api here or in this case, just submit the form and set a localStorage item
-      //   localStorage.setItem("auth", 1);
-      //   this.form.submit();
-      // }
+    
     });
   }
 
