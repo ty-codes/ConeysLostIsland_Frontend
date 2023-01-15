@@ -100,7 +100,7 @@ const claimItem = async () => {
   function runData(myList) {
     var result = myList?.map((dt, key) => {
       return (
-        `<div class="col-md-4 " key=${dt._id}>
+        `<div class="col-md-5 " key=${dt._id}>
           <div class="card item">
             <img src="${dt.image}" class="card-img-top" alt="...">
             <div class="card-body">

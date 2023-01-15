@@ -1,6 +1,14 @@
+const loading = `
+      <div class='spinner-border spinner-border-sm' role='status'>
+        <span class="sr-only"></span>
+      </div>`
+
 async function validateDetails() {
   const username= document.getElementById("username").value;
   const password = document.getElementById("password").value;
+  document.getElementById("login").innerHTML = loading;
+  document.getElementById("error-message").innerText = "";
+
   try {
     await fetch('http://127.0.0.1:8000/login', {
       method: "POST",
@@ -8,14 +16,24 @@ async function validateDetails() {
       headers: {
         'Content-Type': 'application/json',
       }
-    }).then(res => {
-      if(res.status === 200) {
-      console.log("authenticated")
-      localStorage.setItem("token", "123")
     }
-    })    
+    ).then(async (res) => {
+      if(res.status === 200) {
+        await res.json().then(token => {
+        console.log("authenticated");
+        localStorage.setItem("token", token.token);
+        window.location.replace("admin.html");
+        })
+        
+      } else if(res.status >= 400){
+        localStorage.removeItem("token");
+        const error = await res.json()
+        throw Error(error.message)
+    }
+    })
   } catch(err) {
-    console.log('errrr', err)
+    document.getElementById("error-message").innerText = err;
+    document.getElementById("login").innerText = "Login";
   }
 }
 
