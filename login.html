@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ConeysLostIsland</title>
+    <link rel="stylesheet" href="/css/style.min.css">
+    <script defer src="login.js"></script>
+</head>
+<body class="login">
+    <div class="container">
+        <h2 class="text-center">ConeysLostIsland</h2>
+        <br>
+        <form action="admin.html" class="loginForm">
+
+            <div class="input-group">
+                <label for="username" class="label">Username</label>
+                <input type="text" id="username" class="input">
+                <span class="error-message"></span>
+            </div>
+            <br>
+            <div class="input-group">
+                <label for="password" class="label">Password</label>
+                <input type="password" id="password" class="input">
+                <span class="error-message"></span>
+            </div>
+            <br>
+            <button class="button" type="submit">Login</button>
+        </form>
+    </div>
+
+    <style>
+        @font-face {
+            font-family: Montserrat;
+            src: url(fonts/Montserrat-Regular.woff);
+        }
+        @font-face {
+            font-family: KumbhSans;
+            src: url(fonts/KumbhSans-Regular.woff);
+        }
+        @font-face {
+            font-family: Manrope;
+            src: url(fonts/Manrope-Regular.woff);
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: "KumbhSans";
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            justify-content: center;
+            background-image: url(images/b.jpg);
+            background-size: cover;
+            background-position: center;
+        }
+        h2 {
+            margin-top: 2em;
+        }
+        button {
+            padding: 1em 2em;
+            border: none;
+            background-color: white;
+            font-size: 15px;
+            font-weight: 600;
+
+        }
+        button:hover, button:active, button:focus {
+            background-color: black;
+            color: aliceblue;
+        }
+        input {
+            margin-left: 2em;
+            border: none;
+            background-color: transparent;
+            border-bottom: 1px solid white;
+        }
+        .container {
+            background-color: rgba(255, 255, 255, 0.3);
+            height: 40%;
+            width: 40%;
+            margin: auto;
+            text-align: center;
+        }
+        @media (max-width: 750px) {
+            .container {
+                width: 80%;
+            }
+        }
+        @media (max-width: 450px) {
+            .container {
+                width: 95%;
+            }
+        }
+    </style>
+</body>
+</html>

@@ -16,9 +16,11 @@
     crossorigin="anonymous"></script>
   <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <!-- <script src="sweetalert2@11.js"></script> -->
+  <script defer src="auth.js"></script>
+  <script defer src="init.js"></script>
 </head>
 
-<body>
+<body id="admin">
   <!--Nav Bar area -->
   <nav class="navbar navbar-expand-lg sticky-top navbar-dark bg-dark">
     <div class="container-fluid">
@@ -41,7 +43,7 @@
         </ul>
         <!-- <form class="d-flex" onsubmit="event.preventDefault()"> -->
         <!-- <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"> -->
-        <button class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#addCar">Add</button>
+        <button class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#addItem">Add</button>
         <!-- </form> -->
       </div>
     </div>
@@ -64,16 +66,18 @@
   </div>
   <!-- modal -->
   <!-- Modal -->
-  <div class="modal fade" id="addCar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal fade" id="addItem" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="addCarModalLabel">Add car to List</h5>
+          <h5 class="modal-title" id="addItemModalLabel">Claim your property</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
           <form class="row">
-            <div class="col-sm-6">
+            <div class="col-sm-2"></div>
+
+            <div class="col-sm-8">
               <div class="mb-3">
                 <label for="name" class="form-label">Name</label>
                 <input type="text" class="form-control" id="name" placeholder="Teddy bear" required>
@@ -87,20 +91,22 @@
                 <input type="text" class="form-control" id="location" placeholder="" required>
               </div>
               <div class="mb-3">
-                <label for="image" class="form-label">Image link</label>
-                <input type="url" class="form-control" id="image" oninput="photoUpload()" placeholder="link" required>
+                <label for="ticket" class="form-label">Ticket ID</label>
+                <input type="text" class="form-control" id="ticket" placeholder="" required>
+              </div>
+              <div class="mb-3">
+                <label for="date_lost" class="form-label">Date lost</label>
+                <input type="date" class="form-control" id="date_lost" placeholder="" required>
               </div>
             </div>
             <div class="col-sm-2"></div>
-            <div class="col-sm-4">
-              <img src="" id="photo" class=" img-fluid img-thumbnail rounded">
-            </div>
+            
           </form>
           <p id="error"></p>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" onclick="addTocarList()" class="btn btn-primary">Add to List</button>
+          <button type="button" onclick="addItem()" class="btn btn-primary">Add Item</button>
         </div>
       </div>
     </div>
@@ -111,6 +117,7 @@
     body {
       margin: 0;
       padding: 0;
+      font-family: "Montserrat";
     }
 
     .header {
