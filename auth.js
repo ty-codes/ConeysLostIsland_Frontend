@@ -7,7 +7,7 @@ class Auth {
     }
     // check to see if the localStorage item passed to the function is valid and set
     validateAuth(auth) {
-        if (auth != "123") {
+        if (!auth) {
             window.location.replace("login.html");
         } else {
             document.querySelector("body").style.display = "block";
